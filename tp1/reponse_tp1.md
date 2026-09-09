@@ -41,9 +41,29 @@ tv BelEcran is on, channel : 7 - sound volume : 9
 ```
 ## Exercice 4
 
-1.1 
-// les attributs de la classe Book\
+* 1.1 
+// les attributs de la classe Book 
 
    private Author author;\
    private String title;\
-   private int publicationYear;
+   private int publicationYear; 
+
+* 1.2
+```
+ public Library() {
+      this.theBooks =new Book[NB_BOOKS_MAX];
+      this.nbBooks = 0;
+   }
+   ```
+* 1.3
+```
+ addBook
+ displayBooks
+ getNbBooks
+ getBook
+
+   ```
+* 1.4
+```
+
+```

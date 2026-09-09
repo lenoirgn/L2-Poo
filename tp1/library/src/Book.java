@@ -13,10 +13,11 @@ public class Book {
     * @param title  the title of this book
     * @param year   the publication year of this book
     */
-   public Book(String title, Author author, int publicationYear) {
+   public Book(String title, Author author, int publicationYear,int nbPages) {
       this.title = title;
       this.author = author;
       this.publicationYear = publicationYear;
+      this.nbPages = nbPages;
    }
 
    // les attributs de la classe Book
@@ -24,6 +25,7 @@ public class Book {
    private Author author;
    private String title;
    private int publicationYear;
+   private int nbPages=0;
 
    // les méthodes de la classe Book
 

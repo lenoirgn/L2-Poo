@@ -29,7 +29,31 @@ public class Author {
    public String getLastname() {
       return this.lastname;
    }
-
+   /**
+    * this author's firstname
+    * 
+    * @return this author's firstname
+    */
+   public String getFirstname() {
+      return this.firstname;
+   }
+   /**
+    * this author's birth year
+    * 
+    * @return this author's birth year
+    */
+   public int  getBirthYe() {
+      return this.birthYear;
+       
+   }
+   /**
+    * this full name
+    * @return  Author's full name
+    */
+   public String getFullname() {
+      return this.firstname + " "+ this.lastname;
+       
+   }
    /**
     * get author information as a String
     * 
