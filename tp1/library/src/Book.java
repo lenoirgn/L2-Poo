@@ -13,7 +13,12 @@ public class Book {
     * @param title  the title of this book
     * @param year   the publication year of this book
     */
-   public Book(String title, Author author, int publicationYear,int nbPages) {
+   public Book(String title, Author author, int publicationYear) {
+      this.title = title;
+      this.author = author;
+      this.publicationYear = publicationYear;
+   }
+   public Book(String title, Author author, int publicationYear, int nbPages) {
       this.title = title;
       this.author = author;
       this.publicationYear = publicationYear;
@@ -35,7 +40,11 @@ public class Book {
     * @return description for this book
     */
    public String toString() {
-      return this.title + " by " + this.author + " published in " + this.publicationYear;
+      if (this.nbPages>0){
+         return this.title + " by " + this.author + " published in " + this.publicationYear + " with "+this.nbPages+" pages";
+      }
+      else
+         return this.title + " by " + this.author + " published in " + this.publicationYear;
    }
 
    /**
@@ -53,4 +62,21 @@ public class Book {
    public Author getAuthor() {
       return this.author;
    }
+   /**
+    * returns this book's pages
+    * @return this book's pages 
+    */
+   public int getNbPages(){
+      return this.nbPages;
+   }
+
+   /**
+    * edit  this book's pages
+    * 
+    * @param nbPages the new number of pages for this book
+    */
+   public void setNbPages(int nbPages) {
+      this.nbPages = nbPages;
+   }
+
 }
