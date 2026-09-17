@@ -7,6 +7,9 @@ public class LightBulb {
 
     /**
      * builds a LightBulb with given watt, lumen and color, initially it is off
+     * @param watt the wattage of the light bulb
+     * @param lumen the luminous flux of the light bulb
+     * @param color the color of the light bulb
      */
     public LightBulb(int watt,int lumen,String color){
         this.watt=watt;
