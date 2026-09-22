@@ -5,11 +5,11 @@ public  enum PremiumLevel {argent,or,platine;
     public static  PremiumLevel frompoints(int valeur){
         if (valeur<seuileOr){
             return argent;
-        } else if (valeur>seuileOr){
-            return platine;
+        } else if (valeur<seuilePlantine){
+            return or;
         } else
         {
-            return or;
+            return platine;
         }
 
     }
