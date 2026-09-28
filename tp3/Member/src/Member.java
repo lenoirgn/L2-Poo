@@ -73,7 +73,7 @@ public class Member{
      * @return a string describing the member's name, points, and level
      */
     public String toString(){
-        return "Le client "+this.name+ "a " +this.point + "qui correspond a niveau"+ this.getLevel();
+        return "Le client "+this.name+ " "+" a " +this.point +" point "+ " qui correspond a niveau "+" "+ this.getLevel();
     }
 
 
