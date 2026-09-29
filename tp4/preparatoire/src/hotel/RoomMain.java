@@ -1,4 +1,5 @@
-
+package hotel;
+import hotel.util.*;;
 /** main class for TP4 example  */
 
 public class RoomMain {

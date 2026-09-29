@@ -1,4 +1,6 @@
-
+package hotel;
+import hotel.Room;
+import hotel.util.*;
 /**
  * An Hotel has a name and some rooms continuously numbered from 1
  *

@@ -1,4 +1,4 @@
-
+package hotel.util;
 /**
  * status for an Hotel
  */

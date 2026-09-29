@@ -1,4 +1,5 @@
-
+package hotel; 
+import hotel.util.*;
 /** a class to model Room in an hotel, Room has a unique number and can be rent or not */
 public class Room {
 
