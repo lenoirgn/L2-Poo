@@ -29,3 +29,9 @@ replay_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java
 
+# Dossiers générés
+**/classes/
+**/docs/
+
+# Autoriser le fichier JUnit nécessaire aux TP
+!**/junit-console.jar

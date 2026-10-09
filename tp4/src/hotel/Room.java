@@ -23,7 +23,7 @@ public class Room {
    public Room(int number, Status status) {
       this.number = number;
       this.rent = false;
-      this.status = null;
+      this.status = status;
    }
 
    /** return this room number
