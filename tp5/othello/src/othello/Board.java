@@ -40,6 +40,9 @@ public class Board{
     public Pion getPion(Position pos){
         return this.board[pos.getLigne()][pos.getColonne()];
     }
-
+    public boolean estValidePosition(Position posi){
+        return this.longueur> posi.getLigne() && this.largeur>posi.getColonne() &&
+               posi.getLigne()>=0 && posi.getColonne()>=0 ;
+    }
 
 }

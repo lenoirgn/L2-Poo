@@ -11,4 +11,5 @@ public class Pion {
     public Color getCouleur(){
         return this.color;
     }
+    
     }
