@@ -17,7 +17,7 @@ public class TestPosePion{
         Board board=new Board(4,4);
         Pion pion = new Pion(Color.NOIR);
         Position posi=new Position(5,2);
-        assertThrows(InvalidPositionException.class ()->board.poserPion(pion,posi));
+        assertThrows(InvalidPositionException.class, ()->board.poserPion(pion,posi));
     }
     @Test
     public void poserPositionInValideOcuuper(){
@@ -27,7 +27,7 @@ public class TestPosePion{
         board.poserPion(pion1,posi);
         Pion pion2 = new Pion(Color.NOIR);
          board.poserPion(pion2,posi);
-        assertThrows(InvalidPositionException.class ()->board.poserPion(pion2,posi));
+        assertThrows(InvalidPositionException.class ,()->board.poserPion(pion2,posi));
     
     }
 

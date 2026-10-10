@@ -13,6 +13,12 @@ public class OthelloGame{
         
         this.player1= player1;
         this.player2=player2;
+        this.currentPlayer = player1;
+        this.board = new Board(8, 8);
+        this.gameOver = false;
+    }
+    public Player getCurrentPlayer(){
+        return this.currentPlayer;
     }
     public boolean encadreDansDirection(Player j,Position posi,Direction dir){
 
@@ -43,6 +49,16 @@ public class OthelloGame{
      }
      return false;
 
+    }
+
+    public boolean canPlayAt(Position posi,Player j){
+        for (Direction dir: Direction.values()){
+            if (encadreDansDirection(j, posi, dir)){
+                return true;
+            }
+            
+        }
+        return false;
 
     }
     
