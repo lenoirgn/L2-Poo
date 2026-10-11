@@ -19,6 +19,10 @@ public class OthelloGame{
     }
     public Player getCurrentPlayer(){
         return this.currentPlayer;
+
+    }
+    public Board getBoard(){
+        return this.board;
     }
     public boolean encadreDansDirection(Player j,Position posi,Direction dir){
 
@@ -60,6 +64,10 @@ public class OthelloGame{
         }
         return false;
 
+    }
+    public void PoserPionPosition(Player j,Position  posi){
+        Pion pion=new Pion(j.getColor());
+        this.board.getboard()[posi.getLigne()][posi.getColonne()] = pion;
     }
     
 

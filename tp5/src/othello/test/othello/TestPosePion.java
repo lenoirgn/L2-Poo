@@ -26,7 +26,6 @@ public class TestPosePion{
         Position posi=new Position(3,3);
         board.poserPion(pion1,posi);
         Pion pion2 = new Pion(Color.NOIR);
-         board.poserPion(pion2,posi);
         assertThrows(InvalidPositionException.class ,()->board.poserPion(pion2,posi));
     
     }

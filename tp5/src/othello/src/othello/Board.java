@@ -16,12 +16,11 @@ public class Board{
     // Les methodes
     public void poserPion(Pion p, Position pos) throws InvalidPositionException {
         try {
-            if (this.estVide(pos)){
+            if (this.estVide(pos) && estValidePosition(pos)){
                 this.board[pos.getLigne()][pos.getColonne()] = p;
             }else{
                 throw new InvalidPositionException();
             }
-            
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new InvalidPositionException();
         }
@@ -43,6 +42,9 @@ public class Board{
     public boolean estValidePosition(Position posi){
         return this.longueur> posi.getLigne() && this.largeur>posi.getColonne() &&
                posi.getLigne()>=0 && posi.getColonne()>=0 ;
+    }
+    public Pion[][] getboard(){
+        return this.board;
     }
 
 }
