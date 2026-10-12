@@ -8,6 +8,10 @@ public class Pion {
     // Les attributs
     private Color color;
 
+    /**
+     * Returns the color of this Pion.
+     * @return the color of the Pion
+     */
     public Color getCouleur(){
         return this.color;
     }

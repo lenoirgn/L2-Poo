@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class TestCanPlayAt{
     @Test
-    public void  CanPlayeATTrue(){
+    public void  canPlayAtTrue(){
         
         // 2. Créer les deux joueurs
         Player j1 = new Player(Color.NOIR);
@@ -24,7 +24,7 @@ public class TestCanPlayAt{
         assertTrue(game.canPlayAt(posi,j1));
     }
      @Test
-    public void  CanPlayeATFalse(){
+    public void  canPlayAtFalse(){
         
         // 2. Créer les deux joueurs
         Player j1 = new Player(Color.NOIR);
