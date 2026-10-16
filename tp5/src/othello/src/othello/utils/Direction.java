@@ -37,4 +37,7 @@ public enum Direction {
     public int getDeltaY() {
         return this.deltaY;
     }
+    public String toString(){
+        return this.deltaX+","+this.deltaY;
+    }
 }

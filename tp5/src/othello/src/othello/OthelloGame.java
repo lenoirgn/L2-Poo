@@ -20,6 +20,11 @@ public class OthelloGame{
         this.currentPlayer = player1;
         this.board = new Board(8, 8);
         this.gameOver = false;
+        this.board.poserPion(new Pion(Color.BLANCHE), new Position(3, 3));
+        this.board.poserPion(new Pion(Color.NOIR), new Position(3, 4));
+        this.board.poserPion(new Pion(Color.NOIR), new Position(4, 3));
+        this.board.poserPion(new Pion(Color.BLANCHE), new Position(4, 4));
+
     }
     /**
      * Returns the current player of this OthelloGame.
@@ -39,9 +44,13 @@ public class OthelloGame{
 
     public void gameOver(){
         // imcomplete!! il manque une 2eme condition
-        if (this.getBoard().isFull()){
+        if (this.getBoard().isFull()|| !this.canPlay(this.player1) && !this.canPlay(this.player2)){
             this.gameOver=true;
         }
+    }
+
+    public boolean getGameOver(){
+        return this.gameOver;
     }
     /**
      * Switches the current player.
@@ -64,38 +73,39 @@ public class OthelloGame{
      * @param dir the direction to check
      * @return true if the player can enclose pions in the direction, false otherwise
      */
-    public boolean encadreDansDirection(Player j,Position posi,Direction dir){
+    public boolean encadreDansDirection(Player j, Position posi, Direction dir) {
 
-        if ((!this.board.estValidePosition(posi) || !this.board.estVide(posi))){
+        if (!this.board.estValidePosition(posi) || !this.board.estVide(posi)) {
             return false;
         }
 
-        Position posiVoisine=posi.neighbour(dir);
-        
-        if ((!this.board.estValidePosition(posiVoisine) || this.board.estVide(posiVoisine))){
+        Position posiVoisine = posi.neighbour(dir);
+
+        if (!this.board.estValidePosition(posiVoisine) || this.board.estVide(posiVoisine)) {
             return false;
         }
 
-        Pion pion=this.board.getPion(posiVoisine);
-         
+        Pion pion = this.board.getPion(posiVoisine);
+
         if (pion.getCouleur() == j.getColor()) {
             return false;
         }
 
-        posiVoisine=posiVoisine.neighbour(dir);
-
-        while (this.board.estValidePosition(posiVoisine)) {
-        if (this.board.estVide(posiVoisine)) {
-            return false;
-        }
-        pion = this.board.getPion(posiVoisine);
-        if (pion.getCouleur() == j.getColor()) {
-            return true;
-        }
         posiVoisine = posiVoisine.neighbour(dir);
-     }
-     return false;
 
+        while (this.board.estValidePosition(posiVoisine)
+                && !this.board.estVide(posiVoisine)) {
+
+            pion = this.board.getPion(posiVoisine);
+
+            if (pion.getCouleur() == j.getColor()) {
+                return true;
+            }
+
+            posiVoisine = posiVoisine.neighbour(dir);
+        }
+
+        return false;
     }
     /**
      * Checks if the current player can play at the specified position.
@@ -104,7 +114,10 @@ public class OthelloGame{
      * @return true if the player can play at the position, false otherwise
      */
     public boolean canPlayAt(Position posi,Player j){
+        
         for (Direction dir: Direction.values()){
+            
+            
             if (encadreDansDirection(j, posi, dir)){
                 return true;
             }
@@ -112,6 +125,23 @@ public class OthelloGame{
         }
         return false;
 
+    }
+
+    public boolean canPlay(Player player){
+        Board board=this.getBoard();
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++){
+                Position pos = new Position(i, j);
+                if (this.board.estVide(pos)){
+                    if ((this.canPlayAt(pos, player))){
+                        return true;
+                    }
+                }
+                
+            }
+            
+        }
+        return false;
     }
     /**
      * Places a Pion on the board at the specified position for the given player.
@@ -144,5 +174,18 @@ public class OthelloGame{
         }
     }
 
+    public int compteColor(Color color){
+        int cpt=0;
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+                Position pos = new Position(i, j);
+                Pion pion = this.board.getPion(pos);
+                if (pion.getCouleur()==color){
+                    cpt++;
+                }
+            }
+        }
+        return cpt;
+    }
 
 }

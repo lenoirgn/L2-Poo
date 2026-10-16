@@ -1,25 +1,39 @@
 package othello;
+import java.util.Scanner;
 import othello.utils.*;
 
 public class OthelloMain{
+  
 
-    public void start(){
-        Player j1 = new Player(Color.NOIR);
-        Player j2 = new Player(Color.BLANCHE);
-
-        OthelloGame game=new OthelloGame(j1,j2);
-        Board board=game.getBoard();
-
-        // 3. Placer les quatre pions
-        board.poserPion(new Pion(Color.BLANCHE), new Position(3, 3));
-        board.poserPion(new Pion(Color.NOIR), new Position(3, 4));
-        board.poserPion(new Pion(Color.NOIR), new Position(4, 3));
-        board.poserPion(new Pion(Color.BLANCHE), new Position(4, 4));
-
-    }
+  // Main imcomplete 
+    
     public static void main(String[] args) {
-        OthelloMain main = new OthelloMain();
-        main.start();
+        Player player1=new Player(Color.NOIR);
+        Player player2= new Player(Color.BLANCHE);
+        OthelloGame game= new OthelloGame(player1,player2);
+        Scanner saisie = new Scanner(System.in);
+
+        while(!game.getGameOver()){
+            System.out.print(" Donner la ligne : ? ");
+            int x = saisie.nextInt();
+            System.out.print(" Donner la colonne : ? ");
+            int y = saisie.nextInt();
+            Position posi=new Position(x,y);
+            if (game.canPlayAt(posi, game.getCurrentPlayer())){
+                game.PoserPionPosition(game.getCurrentPlayer(), posi);
+            }
+            game.displayBoard();
+            // ....
+            game.switchPlayer();
+          
+        }
+        int comptNoir=game.compteColor(Color.NOIR);
+        int comptBlanche=game.compteColor(Color.BLANCHE);
+        if(comptNoir>comptBlanche){
+            System.out.println("Le vainqueur est :Noir" );
+        }else{
+            System.out.println("Le vainqueur est :Blanche" );
+        }
         
         
 
