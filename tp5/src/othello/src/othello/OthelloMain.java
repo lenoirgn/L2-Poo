@@ -20,8 +20,9 @@ public class OthelloMain{
             int y = saisie.nextInt();
             Position posi=new Position(x,y);
             if (game.canPlayAt(posi, game.getCurrentPlayer())){
+                game.changeAllColors(game.getCurrentPlayer(), posi);
                 game.PoserPionPosition(game.getCurrentPlayer(), posi);
-            }
+                }
             game.displayBoard();
             // ....
             game.switchPlayer();

@@ -212,6 +212,19 @@ public class OthelloGame{
 
     }
 
+    public void changeAllColors(Player j, Position posi) {
+    Color color = j.getColor();
+
+    for (Direction dir : Direction.values()) {
+        if (encadreDansDirection(j, posi, dir)) {
+            changeColor(color, posi, dir);
+        }
+    }
+}
+
+
+
+    // Inutile pour le moment,
     public Direction trouverDirection(Position posi1 , Position posi2){
         int x=posi1.getLigne()-posi2.getLigne();
         int y=posi1.getColonne()-posi2.getColonne();

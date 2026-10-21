@@ -24,6 +24,7 @@ public class Board{
      * @param pos the position where the Pion should be placed
      * @throws InvalidPositionException if the position is invalid or already occupied
      */
+    // Pas utiliser
     public void poserPion(Pion p, Position pos) throws InvalidPositionException {
             if ( this.estValidePosition(pos) && this.estVide(pos) ){
                 this.board[pos.getLigne()][pos.getColonne()] = p;
@@ -37,6 +38,7 @@ public class Board{
      * @param pos the position from which the Pion should be removed
      * @throws InvalidPositionException if the position is invalid
      */
+    // Pas utiliser 
     public void retirerPion(Position pos){
         try {
             this.board[pos.getLigne()][pos.getColonne()] = null;
