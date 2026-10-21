@@ -215,7 +215,24 @@ public class OthelloGame{
     public Direction trouverDirection(Position posi1 , Position posi2){
         int x=posi1.getLigne()-posi2.getLigne();
         int y=posi1.getColonne()-posi2.getColonne();
-        // imcomplete
+        if (x==0 && y>0){
+            return Direction.W;
+        }else if (x==0 && y<0){
+            return Direction.E;
+        }else if (x>0 && y==0){
+            return Direction.N;
+        }else if (x<0 && y==0){
+            return Direction.S;
+        }else if (x<0 && y<0){
+            return Direction.SE;
+        }else if (x>0 && y<0){
+            return Direction.NE;
+        }else if (x>0 && y>0){
+            return Direction.NW;
+        }else if (x<0 && y>0){
+            return Direction.SW;
+        }
 
+    return null;
     }
 }
