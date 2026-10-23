@@ -43,7 +43,6 @@ public class OthelloGame{
     }
 
     public void gameOver(){
-        // imcomplete!! il manque une 2eme condition
         if (this.getBoard().isFull()|| !this.canPlay(this.player1) && !this.canPlay(this.player2)){
             this.gameOver=true;
         }
@@ -122,7 +121,11 @@ public class OthelloGame{
         return false;
 
     }
-
+    /**
+     * Checks if the current player can play at any position on the board.
+     * @param player the player whose turn it is
+     * @return true if the player can play at any position, false otherwise
+     */
     public boolean canPlay(Player player){
         Board board=this.getBoard();
         for (int i = 0; i < 8; i++) {
@@ -211,7 +214,12 @@ public class OthelloGame{
         }
 
     }
-
+    /**
+     * Changes the color of all opponent's pawns that are enclosed in any direction.
+     *
+     * @param j the player whose pawns are to be flipped
+     * @param posi the position of the played pawn
+     */
     public void changeAllColors(Player j, Position posi) {
     Color color = j.getColor();
 
@@ -225,6 +233,12 @@ public class OthelloGame{
 
 
     // Inutile pour le moment,
+    /**
+     * Finds the direction from one position to another.
+     * @param posi1 the starting position
+     * @param posi2 the target position
+     * @return the direction from posi1 to posi2, or null if they are not aligned
+     */
     public Direction trouverDirection(Position posi1 , Position posi2){
         int x=posi1.getLigne()-posi2.getLigne();
         int y=posi1.getColonne()-posi2.getColonne();

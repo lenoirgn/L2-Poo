@@ -13,6 +13,13 @@ public class Player{
         return this.color;
     }
 
+    /**
+     * 
+     */
+    public String toString(){
+        return "Joueur au pion "+ this.color;
+    }
+
     public boolean  equals(Object o){
         if (!(o instanceof Player)){
             return false;

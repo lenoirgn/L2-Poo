@@ -1,10 +1,6 @@
 import othello.OthelloGame;
 import othello.Board;
-import othello.utils.Color;
-import othello.utils.Player;
-import othello.utils.Pion;
-import othello.utils.Position;
-
+import othello.utils.*;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

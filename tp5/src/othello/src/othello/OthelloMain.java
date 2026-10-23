@@ -5,8 +5,7 @@ import othello.utils.*;
 public class OthelloMain{
   
 
-  // Main imcomplete 
-    
+  
     public static void main(String[] args) {
         Player player1=new Player(Color.NOIR);
         Player player2= new Player(Color.BLANCHE);
@@ -14,6 +13,7 @@ public class OthelloMain{
         Scanner saisie = new Scanner(System.in);
 
         while(!game.getGameOver()){
+            System.out.println( game.getCurrentPlayer().toString() );
             System.out.print(" Donner la ligne : ? ");
             int x = saisie.nextInt();
             System.out.print(" Donner la colonne : ? ");
@@ -24,7 +24,7 @@ public class OthelloMain{
                 game.PoserPionPosition(game.getCurrentPlayer(), posi);
                 }
             game.displayBoard();
-            // ....
+            game.gameOver();
             game.switchPlayer();
           
         }
