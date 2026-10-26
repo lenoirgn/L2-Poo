@@ -1,4 +1,5 @@
 package othello;
+import java.util.Scanner;
 import othello.utils.*;
 
 public class OthelloGame{
@@ -204,14 +205,14 @@ public class OthelloGame{
      */
 
     public void changeColor(Color color ,Position posi,Direction dir){
-        Pion pion=new Pion(color);
-        Position posiVoisine = posi.neighbour(dir);
-        while (this.board.estValidePosition(posiVoisine)
-            && this.board.getPion(posiVoisine) != null
-            && this.board.getPion(posiVoisine).getCouleur() != color) {
-            this.board.getboard()[posiVoisine.getLigne()][posiVoisine.getColonne()] = pion;
-            posiVoisine = posiVoisine.neighbour(dir);
-        }
+            Pion pion=new Pion(color);
+            Position posiVoisine = posi.neighbour(dir);
+            while (this.board.estValidePosition(posiVoisine)
+                && this.board.getPion(posiVoisine) != null
+                && this.board.getPion(posiVoisine).getCouleur() != color) {
+                this.board.getboard()[posiVoisine.getLigne()][posiVoisine.getColonne()] = pion;
+                posiVoisine = posiVoisine.neighbour(dir);
+            }
 
     }
     /**
@@ -221,14 +222,24 @@ public class OthelloGame{
      * @param posi the position of the played pawn
      */
     public void changeAllColors(Player j, Position posi) {
-    Color color = j.getColor();
+        Color color = j.getColor();
 
-    for (Direction dir : Direction.values()) {
-        if (encadreDansDirection(j, posi, dir)) {
-            changeColor(color, posi, dir);
+        for (Direction dir : Direction.values()) {
+            if (encadreDansDirection(j, posi, dir)) {
+                changeColor(color, posi, dir);
+            }
         }
     }
-}
+
+    /**
+     * Checks if the next input from the scanner is an integer.
+     *
+     * @param saisie the Scanner object to check
+     * @return true if the next input is an integer, false otherwise
+     */
+    public static boolean saisieEntier(Scanner saisie) {
+        return saisie.hasNextInt();
+    }
 
 
 
