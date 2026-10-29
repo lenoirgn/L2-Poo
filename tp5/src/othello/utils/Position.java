@@ -63,7 +63,7 @@ public class Position{
     }
     /**
      * Returns a new Position object that is a neighbor of the current position.
-     * @param pos the current position
+     * @param dir the current position
      * @return a new Position object a neighbor of the current position
      */
 
