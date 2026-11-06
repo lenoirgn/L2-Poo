@@ -1,0 +1,56 @@
+
+import image.*;
+
+public class Image implements ImageInterface{
+
+    private Pixel [][] tabPixel;
+
+    public Image(int haut,int larg ){
+        this.tabPixel= new Pixel[haut][larg];
+        Pixel p= new Pixel(255);
+        for (int i = 0; i < haut; i++) {
+            for (int j = 0; j < larg; j++) {
+                this.tabPixel[i][j] = p;
+            }
+        }
+    }
+
+    /** returns width of the image
+	 * @return width of the image
+	 */
+	public int getWidth(){
+        return this.tabPixel[0].length;
+    }
+
+	/** returns height of the image
+	 * @return height of the image
+	 */
+	public int getHeight(){
+        return this.tabPixel.length;
+    }
+
+	/** get the pixel at coord (x,y) of this image. (0,0) is top left corner pixel.
+	 * @param x the horizontal coordinate
+	 * @param y the vertical coordinate
+	 * @return pixel at coord (x,y) of this image. (0,0) is top left corner pixel.
+	 * @exception UnknownPixelException if coord (x,y) is not valid for this image
+	 */
+	public Pixel getPixel(int x, int y) throws UnknownPixelException{
+        Pixel p ;
+        if (x < 0 || x >= tabPixel.length ||
+            y < 0 || y >= tabPixel[x].length) {
+            throw new UnknownPixelException("Coordonnees invalides");
+        }
+
+         p = this.tabPixel[x][y];
+         return p;
+    }
+    public void changeColorPixel(int x, int y, GrayColor color) throws UnknownPixelException{
+
+    }
+
+    public void fillRectangle(int x, int y, int width, int height, GrayColor color){
+        
+    }
+ 
+}

@@ -69,11 +69,19 @@ public class RentalAgency{
             System.out.println(veh.toString());
         }
    }
-
+   // le quell est le meilleur entre les deux méthodes suivantes pour supprimer un véhicule de la liste allVehicles?
+   
    public void removeVehicle(Vehicle veh) throws UnknownVehicleException{
+        // cas 1:
         if (this.allVehicles.contains(veh)){
             this.allVehicles.remove(veh);
         }else{
+            throw new UnknownVehicleException();
+        }
+        // cas 2:
+        try{
+            this.allVehicles.remove(veh);
+        }catch(Exception e){
             throw new UnknownVehicleException();
         }
    }
@@ -99,5 +107,32 @@ public class RentalAgency{
 
 } 
 ```
+Q8-Q10
+
+```
+public interface Filter{
+    public boolean  filterBy(Vehicle veh);
+}
+
+public class SelectByMaxPrice100 implements Filter{
+
+    public boolean filterBy(Vehicle veh){
+        return veh.getDailyRentalPrice()<100;
+    }
+
+}
+
+public class selectByBrandTimoleon implements Filter{
+    public boolean filterBy(Vehicle veh){
+        return veh.getBrand().equals("Timoleon");
+    }
+
+}
+
+```
+
+
+
+
 
 
