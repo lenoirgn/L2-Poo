@@ -1,3 +1,6 @@
+package image.color;
+
+
 public class GrayColor{
     public static final GrayColor WHITE= new GrayColor(255);
     public static final GrayColor BLACK= new GrayColor(0);

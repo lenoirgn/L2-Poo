@@ -1,5 +1,7 @@
-
+package image;
 import image.*;
+import image.color.GrayColor;
+
 
 public class Image implements ImageInterface{
 
@@ -7,10 +9,9 @@ public class Image implements ImageInterface{
 
     public Image(int haut,int larg ){
         this.tabPixel= new Pixel[haut][larg];
-        Pixel p= new Pixel(255);
         for (int i = 0; i < haut; i++) {
             for (int j = 0; j < larg; j++) {
-                this.tabPixel[i][j] = p;
+                this.tabPixel[i][j] = new Pixel(GrayColor.WHITE);
             }
         }
     }
@@ -46,11 +47,23 @@ public class Image implements ImageInterface{
          return p;
     }
     public void changeColorPixel(int x, int y, GrayColor color) throws UnknownPixelException{
+        if (x < 0 || x >= tabPixel.length ||
+            y < 0 || y >= tabPixel[x].length) {
+            throw new UnknownPixelException("Coordonnees invalides");
+        }
+        this.tabPixel[x][y]=new Pixel(color);
 
     }
+    // A verifier 
+     public void fillRectangle(int x, int y, int width, int height, GrayColor color){
+        for (int i=x;i<height+x;i++){
+            for (int j=y;j<width+y;j++){
+                this.changeColorPixel(i,j,color);
+            }
 
-    public void fillRectangle(int x, int y, int width, int height, GrayColor color){
+        }
         
     }
+    
  
 }

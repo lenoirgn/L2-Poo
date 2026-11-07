@@ -1,12 +1,16 @@
-import java.lang.Math;
 package image;
 import image.color.*;
+import java.lang.Math;
+
 public class Pixel{
     private GrayColor gColor;
 
     public Pixel(int val){
         this.gColor= new GrayColor(val);
 
+    }
+    public Pixel(GrayColor gcolor){
+        this.gColor=gcolor;
     }
     public boolean equals(Object o){
         if(!(o instanceof Pixel)){
