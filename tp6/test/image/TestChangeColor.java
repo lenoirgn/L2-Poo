@@ -10,7 +10,7 @@ public class TestChangeColor{
     public void changeColorPixelOk() {
         Image img= new Image(10,10);
         img.changeColorPixel(8, 9, new GrayColor(100));
-       assertEquals(new Pixel(new GrayColor(100)), img.getPixel(8,9));
+       assertEquals((new GrayColor(100)), img.getPixel(8,9).getColor());
        }
 
     @Test

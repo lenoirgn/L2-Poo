@@ -72,6 +72,49 @@ public class Image implements ImageInterface{
         }
         
     }
-    
+    public Image negative(){
+        Image imgNeg = new Image(this.getHeight(),this.getWidth());
+        for (int i=0;i<this.getHeight();i++){
+            for (int j=0;j<this.getWidth();j++){
+                GrayColor color = new GrayColor(255-this.getPixel(j,i).getColor().getGrayLevel());
+                imgNeg.changeColorPixel(i,j,color); 
+            }
+        }
+        return imgNeg;
+    }
+
+    /**
+     * Checks if the pixel at (x, y) is a contour pixel based on the given threshold.
+     * A pixel is considered a contour if the difference in gray level with its right or bottom neighbor is greater than the threshold.
+     * @param x the horizontal coordinate of the pixel
+     * @param y the vertical coordinate of the pixel
+     * @param threshold the threshold for contour detection
+     * @return true if the pixel is a contour, false otherwise
+     */
+    public boolean isContour(int x, int y, int threshold) {
+        Pixel current = this.getPixel(x, y);
+        Pixel right = this.getPixel(x + 1, y);
+        Pixel bottom = this.getPixel(x, y + 1);
+
+        return current.colorLevelDifference(right) > threshold ||
+            current.colorLevelDifference(bottom) > threshold;
+    }
+    /**
+     * returns a new image with the contours of this image. A pixel is considered a contour if the difference in gray level with its right or bottom neighbor is greater than the given threshold.
+     * @param threshold the threshold for contour detection
+     * @return a new image with the contours of this image
+     */
+    public Image edgeExtraction(int threshold){
+        Image imgEdge = new Image(this.getHeight(),this.getWidth());
+        for (int i=1;i<this.getHeight()-1;i++){
+            for (int j=1;j<this.getWidth()-1;j++){
+                if (this.isContour(j,i,threshold)){
+                    imgEdge.changeColorPixel(i,j,GrayColor.BLACK);
+                } 
+            }
+        }
+        return imgEdge;
+
+    }
  
 }
