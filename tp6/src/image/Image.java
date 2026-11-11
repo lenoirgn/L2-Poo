@@ -1,5 +1,4 @@
 package image;
-import image.*;
 import image.color.GrayColor;
 
 
@@ -54,7 +53,7 @@ public class Image implements ImageInterface{
         this.tabPixel[x][y]=new Pixel(color);
 
     }
-    // A verifier 
+    
      public void fillRectangle(int x, int y, int width, int height, GrayColor color){
         for (int i=x;i<height+x;i++){
             for (int j=y;j<width+y;j++){

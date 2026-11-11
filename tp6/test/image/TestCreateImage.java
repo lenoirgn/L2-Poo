@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class TestCreateImage {
 
     @Test
-    public  void CreateImageOk(){
+    public  void createImageOk(){
         Image img= new Image(10,10);
         assertEquals(10,img.getHeight());
         assertEquals(10,img.getWidth());
@@ -16,13 +16,13 @@ public class TestCreateImage {
     }
 
     @Test
-    public void CreateImageExceptionOk(){
+    public void createImageExceptionOk(){
         Image img= new Image(10,10);
         assertEquals(new Pixel(GrayColor.WHITE), img.getPixel(3,3));
     }
 
     @Test
-    public void CreateImageException()throws UnknownPixelException{
+    public void createImageException()throws UnknownPixelException{
         Image img= new Image(10,10);
         assertThrows(UnknownPixelException.class, () -> {
             img.getPixel(11, 11);
