@@ -15,6 +15,15 @@ public class Image implements ImageInterface{
         }
     }
 
+    public Image(int haut,int larg, int valPixel){
+        this.tabPixel= new Pixel[haut][larg];
+        for (int i = 0; i < haut; i++) {
+            for (int j = 0; j < larg; j++) {
+                this.tabPixel[i][j] = new Pixel(valPixel);
+            }
+        }
+    }
+
     /** returns width of the image
 	 * @return width of the image
 	 */
@@ -37,12 +46,12 @@ public class Image implements ImageInterface{
 	 */
 	public Pixel getPixel(int x, int y) throws UnknownPixelException{
         Pixel p ;
-        if (x < 0 || x >= tabPixel.length ||
-            y < 0 || y >= tabPixel[x].length) {
+        if (y < 0 || y>= this.getHeight() ||
+            x < 0 || x >= this.getWidth()) {
             throw new UnknownPixelException("Coordonnees invalides");
         }
 
-         p = this.tabPixel[x][y];
+         p = this.tabPixel[y][x];
          return p;
     }
     public void changeColorPixel(int x, int y, GrayColor color) throws UnknownPixelException{

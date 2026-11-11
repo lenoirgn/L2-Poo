@@ -12,7 +12,7 @@ public class TestFillRectangle{
         img.fillRectangle(2,2,2,2,GrayColor.BLACK);
         for (int i=2;i<4;i++){
             for (int j=2;j<4;j++){
-                assertEquals(new Pixel(GrayColor.BLACK), img.getPixel(i,j));
+                assertEquals(GrayColor.BLACK, img.getPixel(i,j).getColor());
             }
         }
     }
