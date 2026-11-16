@@ -3,9 +3,9 @@ import image.color.GrayColor;
 import image.util.*;
 
 public class ImageMain {
-    private static final String LAMP_IMAGE = "/images/lamp.pgm";
-
+     
    public static void main(String[] args){
+      final String LAMP_IMAGE = args[0];
       Image img= new Image(200,200,150);
       img.fillRectangle(20,30, 30, 50, GrayColor.BLACK);
       img.fillRectangle(50,100, 40, 40, new GrayColor(128));
@@ -18,13 +18,12 @@ public class ImageMain {
       img = lampImg.negative();
       displayer.display(img, "LampNeg", 300, 100);
       // Question 12
-      if (args.length==0){
+      if (args.length <=1){
          img = lampImg.edgeExtraction(20);
       }else{
-         int seuil = Integer.parseInt(args[0]);
+         int seuil = Integer.parseInt(args[1]);
          img = lampImg.edgeExtraction(seuil);
       }
-      img = lampImg.edgeExtraction(20);
       displayer.display(img, "LampEdge", 600, 100);
    }
 }
