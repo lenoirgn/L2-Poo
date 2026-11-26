@@ -19,7 +19,7 @@ public class CharityManagerTest{
     public void newActionTestNok()throws AlreadyExistingActionException{
         CharityActionManager chari= new CharityActionManager();
         chari.newAction("Restos du Coeur");
-        assertThrows(AlreadyExistingActionException.class, ()->chari.newAction("Restos du coeur"));
+        assertThrows(AlreadyExistingActionException.class, ()->chari.newAction("Restos du Coeur"));
     }
 
     @Test
@@ -37,6 +37,7 @@ public class CharityManagerTest{
     public void newDonationTestNok()throws AlreadyExistingActionException{
         CharityActionManager chari= new CharityActionManager();
         Donor timo = new Donor("Timoleon");
+        chari.newAction("Restos du Coeur");
         chari.newDonation("Restos du Coeur",timo,100);
         assertFalse(0==chari.donationsTotal("Restos du Coeur"));
     }
